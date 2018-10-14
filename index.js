@@ -1,6 +1,7 @@
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
+var POST = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
@@ -35,6 +36,6 @@ app.get('/fall/:thing', function(req, res) {
     res.render("fall", {thing: thing});
 });
 
-app.listen(process.env.PORT, process.env.IP, function() {
+app.listen(POST, process.env.IP, function() {
     console.log("Server is listing.");
 });
